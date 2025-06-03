@@ -369,7 +369,8 @@ class Script(scripts.Script):
             return p
 
         ignore_whitespace = opts.dp_ignore_whitespace
-
+        clean_prompts = opts.dp_clean_prompts
+        clean_not_found_wildcards = opts.dp_clean_not_found_wildcards
         self._prompt_writer.enabled = opts.dp_write_prompts_to_file
         self._limit_jinja_prompts = opts.dp_limit_jinja_prompts
         self._auto_purge_cache = opts.dp_auto_purge_cache
@@ -429,6 +430,8 @@ class Script(scripts.Script):
                 GeneratorBuilder(
                     self._wildcard_manager,
                     ignore_whitespace=ignore_whitespace,
+                    clean_prompts=clean_prompts,
+                    clean_not_found_wildcards=clean_not_found_wildcards
                     parser_config=parser_config,
                 )
                 .set_is_feeling_lucky(is_feeling_lucky)

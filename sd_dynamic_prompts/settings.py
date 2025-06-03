@@ -15,6 +15,22 @@ def on_ui_settings():
         ),
     )
     shared.opts.add_option(
+        key="dp_clean_prompts",
+        info=shared.OptionInfo(
+            False,
+            label="Cleans prompts from excessive commas: All repeating commas will be replaced with single one. NOTE: Some models gives bad results when there are repeating commas, use this to fix your prompts.",
+            section=section,
+        ),
+    )
+    shared.opts.add_option(
+        key="dp_clean_not_found_wildcards",
+        info=shared.OptionInfo(
+            False,
+            label="Removes not found wildcards tokens: Instead of leaving tokens when there are no corresponding files found, removes them.",
+            section=section,
+        ),
+    )
+    shared.opts.add_option(
         key="dp_write_raw_template",
         info=shared.OptionInfo(
             False,

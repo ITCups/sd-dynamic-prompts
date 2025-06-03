@@ -71,6 +71,8 @@ def monkeypatch_webui(monkeypatch, tmp_path):
             "opts": types.SimpleNamespace(
                 dp_auto_purge_cache=True,
                 dp_ignore_whitespace=True,
+                dp_clean_prompts=False,
+                dp_clean_not_found_wildcards=False,
                 dp_limit_jinja_prompts=False,
                 dp_magicprompt_batch_size=1,
                 dp_parser_variant_end="}",

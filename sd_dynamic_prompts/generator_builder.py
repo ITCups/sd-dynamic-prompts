@@ -24,6 +24,8 @@ class GeneratorBuilder:
         wildcard_manager,
         parser_config=default_parser_config,
         ignore_whitespace=False,
+        clean_prompts=False,
+        clean_not_found_wildcards=False
     ):
         self._wildcard_manager = wildcard_manager
 
@@ -44,6 +46,8 @@ class GeneratorBuilder:
         self._max_attention = 1.5
         self._device = 0
         self._ignore_whitespace = ignore_whitespace
+        self._clean_prompts = clean_prompts
+        self._clean_not_found_wildcards = clean_not_found_wildcards
         self._unlink_seed_from_prompt = False
         self._seed = -1
         self._context = None
@@ -199,6 +203,9 @@ class GeneratorBuilder:
                 self._wildcard_manager,
                 parser_config=self._parser_config,
                 ignore_whitespace=self._ignore_whitespace,
+                clean_prompts=self._clean_prompts,
+                clean_not_found_wildcards=self._clean_not_found_wildcards
+                
             )
             return BatchedCombinatorialPromptGenerator(
                 prompt_generator,
@@ -210,6 +217,8 @@ class GeneratorBuilder:
             parser_config=self._parser_config,
             unlink_seed_from_prompt=self._unlink_seed_from_prompt,
             ignore_whitespace=self._ignore_whitespace,
+            clean_prompts=self._clean_prompts,
+            clean_not_found_wildcards=self._clean_not_found_wildcards
         )
 
     def create_jinja_generator(self, p) -> PromptGenerator:
