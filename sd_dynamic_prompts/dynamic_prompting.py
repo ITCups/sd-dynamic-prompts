@@ -431,7 +431,7 @@ class Script(scripts.Script):
                     self._wildcard_manager,
                     ignore_whitespace=ignore_whitespace,
                     clean_prompts=clean_prompts,
-                    clean_not_found_wildcards=clean_not_found_wildcards
+                    clean_not_found_wildcards=clean_not_found_wildcards,
                     parser_config=parser_config,
                 )
                 .set_is_feeling_lucky(is_feeling_lucky)
